@@ -1,0 +1,114 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: kizomanizo
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+  - changeSet:
+      id: 2
+      author: kizomanizo
+      changes:
+        - createTable:
+            tableName: levels
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+  - changeSet:
+      id: 3
+      author: kizomanizo
+      changes:
+        - insert:
+            tableName: levels
+            columns:
+              - column:
+                  name: name
+                  value: Administrator
+              - column:
+                  name: description
+                  value: User who has access to system internals.
+  - changeSet:
+        id: 4
+        author: kizomanizo
+        changes:
+        - insert:
+            tableName: levels
+            columns:
+              - column:
+                  name: name
+                  value: Supervisor
+              - column:
+                  name: description
+                  value: User who can manage other user access.
+  - changeSet:
+        id: 5
+        author: kizomanizo
+        changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: First User
+              - column:
+                  name: email
+                  value: firstuser@example.com
+  - changeSet:
+        id: 6
+        author: kizomanizo
+        changes:
+        -insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: Second User
+              - column:
+                  name: email
+                  value: seconduser@example.com
+  - changeSet:
+        id: 7
+        author: kizomanizo
+        changes:
+        -insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: Third User
+              - column:
+                  name: email
+                  value: thirduser@example.com
